@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  // import axios from 'axios'
 
   export default {
     data () {
@@ -46,9 +46,10 @@
       }
     },
     methods: {
+
       login () {
-        axios
-          .post('http://localhost:8888/api/private/v1/login', this.ruleForm)
+        this.$http
+          .post('/login', this.ruleForm)
           .then(res => {
               // console.log(res)
               const {data, meta} = res.data
@@ -56,7 +57,7 @@
               if (meta.status === 200) {
                 console.log('登录成功')
                 localStorage.setItem('token',data.token)
-                this.$router.push('/home')
+                this.$router.push('/backhome')
               } else {
                 console.log(meta.msg)
                 this.$message({

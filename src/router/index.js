@@ -4,8 +4,8 @@ import Router from 'vue-router'
 /*eslint no-unused-vars:0*/
 import Index from '@/components/index/Index'
 import Login from '@/components/login/Login'
-import Home from '@/components/home/Home'
-
+import BackHome from '@/components/backhome/BackHome'
+import Users from '@/components/users/Users'
 Vue.use(Router)
 
 const router = new Router({
@@ -24,8 +24,14 @@ const router = new Router({
       component: Login
     },
     {
-      path: '/home',
-      component: Home
+      path: '/backhome',
+      component: BackHome,
+      children: [
+        {
+          path: 'users',
+          component: Users
+        }
+      ]
     }
   ]
 })

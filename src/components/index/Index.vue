@@ -50,7 +50,7 @@
         </ul>
       </div>
       <div class="main-right clearfix">
-        <button class="button1">
+        <button class="button1" @click="button1">
           <p>您好，登录</p>
           <p>我的账户</p><i class="arrow-bottom">▲</i>
 
@@ -671,6 +671,11 @@
         select: ''
       }
 
+    },
+    methods:{
+      button1(){
+        this.$router.push('/login')
+      }
     }
   }
 </script>
@@ -894,6 +899,7 @@
       .button1,.button2 {
         float: left;
         cursor: pointer;
+
       }
 
       button > p:nth-child(odd) {
