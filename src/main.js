@@ -12,7 +12,7 @@ import axios from 'axios'
 
 axios.defaults.baseURL = 'http://localhost:8888/api/private/v1'
 
-axios.interceptors.request.use(function(config) {
+axios.interceptors.request.use(function (config) {
   // 在请求发送之前做一些事情
   // endsWith 字符串的方法,用来判断是不是以参数为结尾,如果是返回值为true
 
@@ -25,7 +25,7 @@ axios.interceptors.request.use(function(config) {
 })
 
 // 响应拦截器
-axios.interceptors.response.use(function(response) {
+axios.interceptors.response.use(function (response) {
   // 在获取到响应数据的时候做一些事情
   // console.log('响应拦截器', response)
   if (response.data.meta.status === 401) {

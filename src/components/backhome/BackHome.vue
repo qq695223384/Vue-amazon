@@ -3,7 +3,7 @@
   <title>后台首页管理页面</title>
   <el-container class="back-wrapper">
     <el-header><el-row>
-      <el-col :span="1"><div class="login"></div></el-col>
+      <el-col :span="1"><a href="/"><div class="login"></div></a></el-col>
       <el-col :span="18"><div class="title">后台首页管理页面</div></el-col>
       <el-col :span="5">  <el-button type="text" @click="open">退出</el-button>
       </el-col>

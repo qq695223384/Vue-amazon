@@ -46,7 +46,7 @@ if (!config.url.endsWith('/login')) {
 
 
 
-# Login登录功能开发笔记（第一天）
+# Login登录功能开发笔记
 
 ###### 登录页面（Login.vue）
 
@@ -87,7 +87,7 @@ if (!config.url.endsWith('/login')) {
 
 ------
 
-# BackHome后台首页功能开发笔记（第一天）
+# BackHome后台首页功能开发笔记
 
 ###### 后台页面（BackHome.vue）
 
@@ -105,15 +105,40 @@ if (!config.url.endsWith('/login')) {
 
 
 
-# Users后台局部组件列表功能开发笔记（第一天）
+# Users后台局部组件列表功能开发笔记
 
-###### 局部组件（Users.vue）
+###### 用户列表（Users.vue）
 
-**一.写好页面和样式（利用UI）**
+**一.在主页面(BackHome)设置路由出口和组件地址**
 
-**二.写好规则（利用UI）** 
+1.页面中设置路由出口
 
-**三.写方法，发送请求met**hods  （忘记可查看代码或者菜鸟教程axios）  
+<el-main><router-view></router-view></el-main>
+
+2.在页面的index中引入局部组件的地址/backhome/users
+
+**二.在路由router中的index,js中设置backhome下的子路由**
+
+关键词:children
+
+```
+{
+  path: '/backhome',
+  component: BackHome,
+  children: [
+    {
+      path: 'users',
+      component: Users
+    }
+  ]
+}
+```
+
+**三.写好页面和样式（利用UI）****
+
+**四.写好规则（利用UI）**** 
+
+**五.写方法，发送请求met**hods  （忘记可查看代码或者菜鸟教程axios）**  
 
 关键词：axios，
 
@@ -141,6 +166,59 @@ if (!config.url.endsWith('/login')) {
 data() {
   return {
     userList: []
+  }
+```
+
+###### 搜索功能（Users.vue）
+
+一.写好页面和样式（利用UI)
+
+二.用搜索按钮添加点击事件
+
+1.在搜索框中绑定一个获取输入内容的名字 如v-model="queryStr"
+
+  script:在data中，将queryStr设置为空
+
+2.然后在axios中设置query:this.queryStr||''
+
+3.之后在queryStr方法中，调用axios
+
+  并将页面重置为第一页 this.curPage=1
+
+###### 添加功能（Users.vue）
+
+一.写好页面和样式（利用UI)
+
+二.给添加用户按钮添加一个事件
+
+在方法中，点击按钮 让表单显示 this.userAddDialog=true
+
+三.将表单的每个输入框的绑定更改为对应的接口
+
+ script:在data中，也将其修改为对应的接口名字
+
+并添加其添加用户对应的规则，可参考Login的登录规则
+
+四.表单中的确定按钮添加一个事件
+
+1.在方法中，对表单的输入的内容进行判断是否符合规则
+
+注意：在页面中model里面的单词,要与<code>ref</code>一样，否则会出现validate为定义
+
+关键词validate
+
+```
+this.$refs.userAddForm.validate(valid =>{
+  if (valid){
+    console.log("成功")
+
+  }
+    else{
+      console.log("失败")
+      return false
+
+  }
+
   }
 ```
 
