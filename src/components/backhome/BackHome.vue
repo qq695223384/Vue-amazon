@@ -30,17 +30,17 @@
                 <!--     局部组件设置-->
                 <el-menu-item index="/backhome/users">用户列表</el-menu-item>
 
-                <el-menu-item index="1-2">用户添加</el-menu-item>
+<!--                <el-menu-item index="1-2">权限管理</el-menu-item>-->
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="2-1">
               <template slot="title">
                 <i class="el-icon-menu"></i>
-                <span>订单管理</span>
+                <span>权限管理</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="2-1">订单列表</el-menu-item>
-                <el-menu-item index="2-2">订单添加</el-menu-item>
+                <el-menu-item index="/backhome/lights">权限列表</el-menu-item>
+                <el-menu-item index="/backhome/roles">角色列表</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>

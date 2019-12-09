@@ -6,6 +6,9 @@ import Index from '@/components/index/Index'
 import Login from '@/components/login/Login'
 import BackHome from '@/components/backhome/BackHome'
 import Users from '@/components/users/Users'
+import Lights from '@/components/lights/Lights'
+import Roles from '@/components/roles/Roles'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -30,9 +33,18 @@ const router = new Router({
         {
           path: 'users',
           component: Users
+        },
+        {
+          path: 'lights',
+          component: Lights
+        },
+        {
+          path: 'roles',
+          component: Roles
         }
       ]
-    }
+    },
+
   ]
 })
 
